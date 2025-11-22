@@ -5,10 +5,11 @@ import Work from './components/Work'
 import Services from './components/Services'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import { LanguageProvider } from './contexts/LanguageContext'
 
 function App() {
     return (
-        <>
+        <LanguageProvider>
             <Header />
             <main className="flex-grow pt-20">
                 <Hero />
@@ -18,7 +19,7 @@ function App() {
                 <Contact />
             </main>
             <Footer />
-        </>
+        </LanguageProvider>
     )
 }
 

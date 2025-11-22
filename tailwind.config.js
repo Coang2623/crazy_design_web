@@ -13,7 +13,7 @@ export default {
                 "background-dark": "#111827", // Gray 900
             },
             fontFamily: {
-                display: ["Poppins", "sans-serif"],
+                display: ["Roboto Mono", "monospace"],
             },
             borderRadius: {
                 DEFAULT: "0.5rem", // 8px
