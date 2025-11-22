@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Crazydesign - Interior &amp; Furniture Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F59E0B", // Amber 500
+                        "background-light": "#F8F8F8",
+                        "background-dark": "#111827", // Gray 900
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem", // 8px
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .material-icons {
+            font-size: inherit;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 antialiased">
+    <div class="flex flex-col min-h-screen" id="root">
+        <header
+            class="fixed top-0 left-0 right-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a class="flex items-center space-x-2" href="#">
+                    <svg class="h-8 w-auto text-primary" fill="none" viewBox="0 0 160 100"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 100V0H80L80 20L20 20V100H0Z" fill="#F59E0B"></path>
+                        <path class="text-gray-800 dark:text-gray-200" d="M40 80L40 40H60V80H40Z" fill="currentColor">
+                        </path>
+                        <path class="text-gray-800 dark:text-gray-200"
+                            d="M70 80L80 40L90 80L100 40L110 80H95L90 60L85 80H70Z" fill="currentColor"></path>
+                        <path class="text-gray-800 dark:text-gray-200" d="M120 40H160V60H140V80H160V100H120V40Z"
+                            fill="currentColor"></path>
+                    </svg>
+                    <span class="font-bold text-xl tracking-tight text-gray-900 dark:text-white">CRAZYDESIGN</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors" href="#about">About
+                        Us</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors" href="#work">Our
+                        Work</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"
+                        href="#services">Services</a>
+                    <a class="bg-primary text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+                        href="#contact">Contact Us</a>
+                </nav>
+                <button class="md:hidden text-gray-700 dark:text-gray-300">
+                    <span class="material-icons text-3xl">menu</span>
+                </button>
+            </div>
+        </header>
+        <main class="flex-grow pt-20">
+            <section class="container mx-auto px-6 py-20 md:py-32 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4">Crafting
+                    Spaces, Inspiring Life.</h1>
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">We specialize in
+                    bespoke furniture and interior design for workshops, spas, and coffee shops, turning your vision
+                    into a tangible, beautiful reality.</p>
+                <a class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity inline-flex items-center"
+                    href="#work">
+                    View Our Portfolio
+                    <span class="material-icons ml-2">arrow_forward</span>
+                </a>
+            </section>
+            <section class="py-24 bg-gray-50 dark:bg-gray-800" id="about">
+                <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img alt="A modern, minimalist spa reception area with a curved white desk"
+                            class="rounded-lg shadow-xl w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnPwzOdRPE3jgjeNds2K6WNWXqW2QQO6pDhinv6qfzNv3ZKp0F1NGVsz62K7Lx1XKnWfcVUjW2B7Pw2xdo_PFw54aZVzSErnLdrIZX5efYX3y4yqAx7MJ37FKbl03yPiH2TWvhNsoe2fDy6xbrxXi5UONbUMxqQ2j0Kgk8IP3PXp96At-YzfY57GiCW44gae5CR9_gusU3Z9Lnt_LFcjDviSJQPmGkyXn_6uk6qAL_pZ1nG7vZpNRdBdmHvEWkVvU6uSfa8StbdEM" />
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Who We Are</h2>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Crazydesign is more than just a design firm; we
+                            are storytellers who use space and form as our language. Founded on the principle that great
+                            design enhances human experience, we collaborate closely with our clients to create
+                            environments that are not only aesthetically pleasing but also functional and enduring.</p>
+                        <p class="text-gray-600 dark:text-gray-400">Our passion lies in the details—the texture of wood,
+                            the curve of a chair, the play of light. We believe every element should have a purpose and
+                            contribute to a cohesive, inviting atmosphere.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="py-24" id="work">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Work</h2>
+                        <p class="text-gray-600 dark:text-gray-400">Explore our curated portfolio showcasing our
+                            expertise in creating unique and functional spaces for a diverse range of clients.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white dark:bg-gray-800/50 rounded-lg shadow-lg overflow-hidden group">
+                            <img alt="The exterior of a modern coffee shop with large windows and outdoor seating"
+                                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmOUDjWHIesHv-6obd5xSIouUj_iS40K4Ru-vzbVfp0YTztfeQhiUw7u_WjUZjhZVIi2XF1j1jqnbL_BBhPxGBq0bamDeKvcPRSAxkKweynJfAQb5HzNBOPYceSvuavPNRPSd5hVQgC3UyqmhqSsaeKFpe4DjOBpJ0h1wE09_fMJIsh5mMgpKZhdRWSjzk2EtkcC1kVGIbHjhp-Ve0N9b0LLfeC4uk2t54AwEJU4h1-vfSGVBxuoYSDz09L5zdjUzz66f2ABtJasA" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Coffee Shops</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Inviting atmospheres that brew community and
+                                    conversation, one custom detail at a time.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800/50 rounded-lg shadow-lg overflow-hidden group">
+                            <img alt="Minimalist coffee shop interior with light-colored walls and built-in shelving"
+                                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm4uHMJLocUcIoIXRRrQEJNUVaFK4PC9N1nrQveN0-Q4i2Qc9eJ3v8wM1ANhf4tnAbl3urqTm0QcbdXVgEDfBc2vozd049dbamEOduasIfmarzRT_vnZBYPP6XSIDH7jUs87CY04Z5VmhZjlvGM8N6qR2wKeNOKLPzov348gXGY3FqtMhXF8zmY5t6XelCxnP_VxKkXRWpg6HedmIcDIuLtGfovQ0vBSWfJKj_0ifQjD2QIMJWW7QGg8L12K-W1kriu0rGA14AVYI" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Spas &amp; Wellness
+                                </h3>
+                                <p class="text-gray-600 dark:text-gray-400">Serene sanctuaries designed for tranquility,
+                                    relaxation, and rejuvenation.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800/50 rounded-lg shadow-lg overflow-hidden group">
+                            <img alt="Cozy coffee shop interior with wooden furniture and shelving"
+                                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp1iaEqGsrwGC2Ki_k8X9l0-ix3u4ULD6bm2-zmUd2PqBj736XgAZNDEnS-JJK9PafXcgG-xM5T3Eso2itqQnFjDEpodKaGDcLXdl3wxYmrDc0l-KCJlALRN-w191ocRle3F1TYIFaAehOq1WpU3mr75t8wi-_ILO7v-Ol0qUcYS0jBG_NOUi_E7qodMIxRkyN9oENI9m_p44LXkcALC7Oi3irIBCLCtFIJuGdp_qqpkWIiSoMFc76opkfBqRSnLv_hBnOGz026PQ" />
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Workshops &amp;
+                                    Studios</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Functional and inspiring spaces that foster
+                                    creativity and productivity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-24 bg-gray-50 dark:bg-gray-800" id="services">
+                <div class="container mx-auto px-6">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Services</h2>
+                        <p class="text-gray-600 dark:text-gray-400">From initial concept to final installation, we offer
+                            a comprehensive suite of design services tailored to your needs.</p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div class="bg-white dark:bg-background-dark p-8 rounded-lg shadow-md">
+                            <div
+                                class="bg-primary/10 text-primary w-16 h-16 rounded-full inline-flex items-center justify-center mb-6">
+                                <span class="material-icons text-3xl">space_dashboard</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Interior Design</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Holistic space planning, material selection, and
+                                lighting design to create a cohesive environment.</p>
+                        </div>
+                        <div class="bg-white dark:bg-background-dark p-8 rounded-lg shadow-md">
+                            <div
+                                class="bg-primary/10 text-primary w-16 h-16 rounded-full inline-flex items-center justify-center mb-6">
+                                <span class="material-icons text-3xl">chair</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Custom Furniture</h3>
+                            <p class="text-gray-600 dark:text-gray-400">Bespoke furniture pieces designed and crafted to
+                                fit your space and style perfectly.</p>
+                        </div>
+                        <div class="bg-white dark:bg-background-dark p-8 rounded-lg shadow-md">
+                            <div
+                                class="bg-primary/10 text-primary w-16 h-16 rounded-full inline-flex items-center justify-center mb-6">
+                                <span class="material-icons text-3xl">construction</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Project Management</h3>
+                            <p class="text-gray-600 dark:text-gray-400">End-to-end oversight to ensure your project is
+                                completed on time, on budget, and to our high standards.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="py-24" id="contact">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800/50 rounded-lg shadow-xl p-8 md:p-12">
+                        <div class="text-center mb-8">
+                            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Let's Create Something Together
+                            </h2>
+                            <p class="text-gray-600 dark:text-gray-400 mt-2">Have a project in mind? We'd love to hear
+                                about it.</p>
+                        </div>
+                        <form action="#" method="POST">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <input
+                                    class="w-full bg-gray-100 dark:bg-gray-900 border-gray-300 dark:border-gray-700 rounded-lg p-3 focus:ring-primary focus:border-primary transition"
+                                    placeholder="Your Name" type="text" />
+                                <input
+                                    class="w-full bg-gray-100 dark:bg-gray-900 border-gray-300 dark:border-gray-700 rounded-lg p-3 focus:ring-primary focus:border-primary transition"
+                                    placeholder="Your Email" type="email" />
+                            </div>
+                            <div class="mb-6">
+                                <textarea
+                                    class="w-full bg-gray-100 dark:bg-gray-900 border-gray-300 dark:border-gray-700 rounded-lg p-3 focus:ring-primary focus:border-primary transition"
+                                    placeholder="Tell us about your project..." rows="5"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button
+                                    class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                                    type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-gray-100 dark:bg-gray-900">
+            <div class="container mx-auto px-6 py-8">
+                <div class="md:flex md:justify-between items-center">
+                    <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                        <svg class="h-8 w-auto text-primary" fill="none" viewBox="0 0 160 100"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 100V0H80L80 20L20 20V100H0Z" fill="#F59E0B"></path>
+                            <path class="text-gray-800 dark:text-gray-200" d="M40 80L40 40H60V80H40Z"
+                                fill="currentColor"></path>
+                            <path class="text-gray-800 dark:text-gray-200"
+                                d="M70 80L80 40L90 80L100 40L110 80H95L90 60L85 80H70Z" fill="currentColor"></path>
+                            <path class="text-gray-800 dark:text-gray-200" d="M120 40H160V60H140V80H160V100H120V40Z"
+                                fill="currentColor"></path>
+                        </svg>
+                        <span class="font-bold text-xl tracking-tight text-gray-900 dark:text-white">CRAZYDESIGN</span>
+                    </div>
+                    <div class="text-gray-500 dark:text-gray-400">
+                        © 2024 Crazydesign. All rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
