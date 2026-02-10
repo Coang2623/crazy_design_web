@@ -1,0 +1,55 @@
+/* CSS Variables */
+:root {
+    /* Primary Colors */
+    --color-primary: #FFC107;
+    --color-primary-light: #FFD54F;
+    --color-primary-dark: #FFA000;
+    
+    /* Dark Theme Colors */
+    --color-dark-900: #0F172A;
+    --color-dark-800: #1E293B;
+    --color-dark-700: #334155;
+    
+    /* Accent Colors */
+    --color-copper: #B87333;
+    --color-bronze: #CD7F32;
+    --color-champagne: #F7E7CE;
+    --color-gold: #D4AF37;
+    
+    /* Background */
+    --bg-light: #F8F8F8;
+    --bg-dark: #0F172A;
+    
+    /* Typography */
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-accent: 'Space Grotesk', sans-serif;
+    
+    /* Spacing */
+    --spacing-section: 6rem;
+    --spacing-container: 1.5rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-full: 9999px;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+    --shadow-glow: 0 0 20px rgba(255, 193, 7, 0.3);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --transition-slow: 500ms ease;
+}
+
+/* Dark mode overrides */
+.dark {
+    --bg-light: #0F172A;
+    --bg-dark: #020617;
+}

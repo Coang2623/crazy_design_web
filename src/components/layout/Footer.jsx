@@ -1,6 +1,6 @@
 import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
-import logo from '../assets/logo.png';
+import { useLanguage } from '../../contexts/LanguageContext';
+import logo from '../../assets/logo.png';
 
 export default function Footer() {
     const { t } = useLanguage();

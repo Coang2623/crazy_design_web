@@ -1,6 +1,6 @@
 import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
-import aboutImage from '../assets/about-image.jpg';
+import { useLanguage } from '../../contexts/LanguageContext';
+import aboutImage from '../../assets/about-image.jpg';
 
 export default function About() {
     const { t } = useLanguage();

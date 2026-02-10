@@ -1,10 +1,10 @@
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Work from './components/Work'
-import Services from './components/Services'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import Header from './components/layout/Header'
+import Hero from './components/sections/Hero'
+import About from './components/sections/About'
+import Work from './components/sections/Work'
+import Services from './components/sections/Services'
+import Contact from './components/sections/Contact'
+import Footer from './components/layout/Footer'
 import { LanguageProvider } from './contexts/LanguageContext'
 
 function App() {
@@ -24,3 +24,4 @@ function App() {
 }
 
 export default App
+

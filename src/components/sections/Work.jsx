@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
-import workCoffee from '../assets/work-coffee.jpg';
-import workSpas from '../assets/work-spas.jpg';
-import workStudios from '../assets/work-studios.jpg';
+import { useLanguage } from '../../contexts/LanguageContext';
+import workCoffee from '../../assets/work-coffee.jpg';
+import workSpas from '../../assets/work-spas.jpg';
+import workStudios from '../../assets/work-studios.jpg';
 
 export default function Work() {
     const { t } = useLanguage();
