@@ -1,0 +1,1 @@
+import{r as t}from"./vendor-kwcT8rmp.js";import{r as n}from"./index-i6lRcEgf.js";const o=o=>{const[r,s]=t.useState(null);return t.useEffect(()=>{if(o){const r={...n};try{const t=new Function(o)(r);s(()=>n=>t.default({...n}))}catch(t){}}},[o]),r};export{o as u};
