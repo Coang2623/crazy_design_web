@@ -4,6 +4,7 @@ export const translations = {
             about: "About Us",
             work: "Our Work",
             services: "Services",
+            journal: "Journal",
             contact: "Contact Us",
         },
         hero: {
@@ -70,6 +71,7 @@ export const translations = {
             about: "Về Chúng Tôi",
             work: "Dự Án",
             services: "Dịch Vụ",
+            journal: "Nhật Ký",
             contact: "Liên Hệ",
         },
         hero: {

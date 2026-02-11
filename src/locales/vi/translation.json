@@ -1,0 +1,96 @@
+{
+    "nav": {
+        "about": "Về Chúng Tôi",
+        "work": "Dự Án",
+        "services": "Dịch Vụ",
+        "journal": "Nhật Ký",
+        "contact": "Liên Hệ"
+    },
+    "hero": {
+        "title": "Kiến Tạo Không Gian, Khơi Nguồn Cảm Hứng.",
+        "subtitle": "Chúng tôi chuyên thiết kế nội thất và đồ gỗ riêng biệt cho nhà xưởng, spa và quán cà phê, biến tầm nhìn của bạn thành hiện thực đẹp đẽ và hữu hình.",
+        "cta": "Xem Hồ Sơ Năng Lực"
+    },
+    "about": {
+        "title": "Chúng Tôi Là Ai",
+        "p1": "Crazydesign không chỉ là một công ty thiết kế; chúng tôi là những người kể chuyện sử dụng không gian và hình khối làm ngôn ngữ. Được thành lập trên nguyên tắc thiết kế tuyệt vời nâng cao trải nghiệm con người, chúng tôi hợp tác chặt chẽ với khách hàng để tạo ra những môi trường không chỉ đẹp về thẩm mỹ mà còn công năng và bền vững.",
+        "p2": "Đam mê của chúng tôi nằm ở những chi tiết—kết cấu của gỗ, đường cong của chiếc ghế, vũ điệu của ánh sáng. Chúng tôi tin rằng mọi yếu tố đều phải có mục đích và góp phần tạo nên một bầu không khí gắn kết, mời gọi."
+    },
+    "work": {
+        "title": "Dự Án Của Chúng Tôi",
+        "subtitle": "Khám phá danh mục đầu tư được tuyển chọn của chúng tôi, thể hiện chuyên môn trong việc tạo ra những không gian độc đáo và công năng cho đa dạng khách hàng.",
+        "coffee": {
+            "title": "Quán Cà Phê",
+            "desc": "Bầu không khí mời gọi khơi dậy cộng đồng và những cuộc trò chuyện, qua từng chi tiết tùy chỉnh."
+        },
+        "spas": {
+            "title": "Spa & Chăm Sóc Sức Khỏe",
+            "desc": "Những thánh địa thanh bình được thiết kế cho sự tĩnh lặng, thư giãn và trẻ hóa."
+        },
+        "studios": {
+            "title": "Nhà Xưởng & Studio",
+            "desc": "Không gian công năng và đầy cảm hứng nuôi dưỡng sự sáng tạo và năng suất."
+        }
+    },
+    "services": {
+        "title": "Dịch Vụ Của Chúng Tôi",
+        "subtitle": "Từ ý tưởng ban đầu đến lắp đặt hoàn thiện, chúng tôi cung cấp bộ dịch vụ thiết kế toàn diện phù hợp với nhu cầu của bạn.",
+        "interior": {
+            "title": "Thiết Kế Nội Thất",
+            "desc": "Quy hoạch không gian tổng thể, lựa chọn vật liệu và thiết kế ánh sáng để tạo ra một môi trường gắn kết."
+        },
+        "furniture": {
+            "title": "Nội Thất Thiết Kế Riêng",
+            "desc": "Các món đồ nội thất riêng biệt được thiết kế và chế tác để phù hợp hoàn hảo với không gian và phong cách của bạn."
+        },
+        "management": {
+            "title": "Quản Lý Dự Án",
+            "desc": "Giám sát từ đầu đến cuối để đảm bảo dự án của bạn hoàn thành đúng hạn, đúng ngân sách và đạt tiêu chuẩn cao của chúng tôi."
+        }
+    },
+    "contact": {
+        "title": "Cùng Nhau Kiến Tạo",
+        "subtitle": "Bạn đang có ý tưởng cho dự án? Chúng tôi rất muốn lắng nghe.",
+        "namePlaceholder": "Tên Của Bạn",
+        "emailPlaceholder": "Email Của Bạn",
+        "messagePlaceholder": "Hãy kể cho chúng tôi về dự án của bạn...",
+        "submit": "Gửi Tin Nhắn",
+        "methods": {
+            "facebook": "Facebook",
+            "zalo": "Zalo",
+            "email": "Email"
+        }
+    },
+    "footer": {
+        "copyright": "© 2024 Crazydesign. Bảo lưu mọi quyền."
+    },
+    "common": {
+        "viewProject": "Xem Dự Án",
+        "viewAllProjects": "Xem Tất Cả Dự Án",
+        "readArticle": "Đọc Bài Viết",
+        "readMore": "Đọc Thêm",
+        "backToHome": "Về Trang Chủ",
+        "backToProjects": "Quay Lại Dự Án",
+        "backToJournal": "Quay Lại Nhật Ký",
+        "share": "Chia Sẻ",
+        "client": "Khách Hàng",
+        "location": "Địa Điểm",
+        "year": "Năm",
+        "services": "Dịch Vụ",
+        "loading": "Đang Tải..."
+    },
+    "blog": {
+        "latest": "Nhật Ký Mới Nhất",
+        "featured": "Nổi Bật",
+        "readTime": "phút đọc"
+    },
+    "projects": {
+        "all": "Tất Cả Dự Án",
+        "featured": "Dự Án Nổi Bật"
+    },
+    "error": {
+        "title": "404",
+        "notFound": "Không tìm thấy trang.",
+        "back": "Quay Lại Trang Chủ"
+    }
+}

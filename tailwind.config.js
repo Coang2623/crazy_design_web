@@ -51,6 +51,7 @@ export default {
                 display: ['Playfair Display', 'serif'],
                 body: ['Inter', 'sans-serif'],
                 accent: ['Space Grotesk', 'sans-serif'],
+                article: ['Merriweather', 'serif'],
             },
             borderRadius: {
                 DEFAULT: "0.5rem",
@@ -104,5 +105,7 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }

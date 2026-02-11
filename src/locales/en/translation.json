@@ -1,0 +1,96 @@
+{
+    "nav": {
+        "about": "About Us",
+        "work": "Our Work",
+        "services": "Services",
+        "journal": "Journal",
+        "contact": "Contact Us"
+    },
+    "hero": {
+        "title": "Crafting Spaces, Inspiring Life.",
+        "subtitle": "We specialize in bespoke furniture and interior design for workshops, spas, and coffee shops, turning your vision into a tangible, beautiful reality.",
+        "cta": "View Our Portfolio"
+    },
+    "about": {
+        "title": "Who We Are",
+        "p1": "Crazydesign is more than just a design firm; we are storytellers who use space and form as our language. Founded on the principle that great design enhances human experience, we collaborate closely with our clients to create environments that are not only aesthetically pleasing but also functional and enduring.",
+        "p2": "Our passion lies in the details—the texture of wood, the curve of a chair, the play of light. We believe every element should have a purpose and contribute to a cohesive, inviting atmosphere."
+    },
+    "work": {
+        "title": "Our Work",
+        "subtitle": "Explore our curated portfolio showcasing our expertise in creating unique and functional spaces for a diverse range of clients.",
+        "coffee": {
+            "title": "Coffee Shops",
+            "desc": "Inviting atmospheres that brew community and conversation, one custom detail at a time."
+        },
+        "spas": {
+            "title": "Spas & Wellness",
+            "desc": "Serene sanctuaries designed for tranquility, relaxation, and rejuvenation."
+        },
+        "studios": {
+            "title": "Workshops & Studios",
+            "desc": "Functional and inspiring spaces that foster creativity and productivity."
+        }
+    },
+    "services": {
+        "title": "Our Services",
+        "subtitle": "From initial concept to final installation, we offer a comprehensive suite of design services tailored to your needs.",
+        "interior": {
+            "title": "Interior Design",
+            "desc": "Holistic space planning, material selection, and lighting design to create a cohesive environment."
+        },
+        "furniture": {
+            "title": "Custom Furniture",
+            "desc": "Bespoke furniture pieces designed and crafted to fit your space and style perfectly."
+        },
+        "management": {
+            "title": "Project Management",
+            "desc": "End-to-end oversight to ensure your project is completed on time, on budget, and to our high standards."
+        }
+    },
+    "contact": {
+        "title": "Let's Create Something Together",
+        "subtitle": "Have a project in mind? We'd love to hear about it.",
+        "namePlaceholder": "Your Name",
+        "emailPlaceholder": "Your Email",
+        "messagePlaceholder": "Tell us about your project...",
+        "submit": "Send Message",
+        "methods": {
+            "facebook": "Facebook",
+            "zalo": "Zalo",
+            "email": "Email"
+        }
+    },
+    "footer": {
+        "copyright": "© 2024 Crazydesign. All rights reserved."
+    },
+    "common": {
+        "viewProject": "View Project",
+        "viewAllProjects": "View All Projects",
+        "readArticle": "Read Article",
+        "readMore": "Read More",
+        "backToHome": "Back to Home",
+        "backToProjects": "Back to Projects",
+        "backToJournal": "Back to Journal",
+        "share": "Share",
+        "client": "Client",
+        "location": "Location",
+        "year": "Year",
+        "services": "Services",
+        "loading": "Loading..."
+    },
+    "blog": {
+        "latest": "Latest Journal",
+        "featured": "Featured",
+        "readTime": "min read"
+    },
+    "projects": {
+        "all": "All Projects",
+        "featured": "Featured Projects"
+    },
+    "error": {
+        "title": "404",
+        "notFound": "Page not found.",
+        "back": "Back to Home"
+    }
+}
