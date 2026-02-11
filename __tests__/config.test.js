@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import config from '../src/lib/config';
+import { config } from '../src/lib/config';
 
 describe('Config', () => {
     it('should have basic site configuration', () => {
