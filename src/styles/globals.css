@@ -94,6 +94,211 @@
   }
 }
 
+/* ========================================
+   VISUAL UPGRADES — Animations & Effects
+   ======================================== */
+
+/* Hero Gradient Mesh */
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-gradient-mesh {
+  background: linear-gradient(-45deg,
+      rgba(255, 193, 7, 0.08),
+      rgba(255, 143, 0, 0.06),
+      rgba(184, 115, 51, 0.05),
+      rgba(15, 23, 42, 0.02),
+      rgba(255, 193, 7, 0.08));
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.dark .hero-gradient-mesh {
+  background: linear-gradient(-45deg,
+      rgba(255, 193, 7, 0.04),
+      rgba(255, 143, 0, 0.03),
+      rgba(184, 115, 51, 0.03),
+      rgba(15, 23, 42, 0.01),
+      rgba(255, 193, 7, 0.04));
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Floating Shape */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(-15px, 15px) scale(0.95);
+  }
+}
+
+@keyframes floatReverse {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(-25px, 15px) scale(0.95);
+  }
+
+  66% {
+    transform: translate(20px, -25px) scale(1.05);
+  }
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.floating-shape-1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 193, 7, 0.15);
+  top: 10%;
+  right: -5%;
+  animation: float 12s ease-in-out infinite;
+}
+
+.floating-shape-2 {
+  width: 250px;
+  height: 250px;
+  background: rgba(184, 115, 51, 0.12);
+  bottom: 5%;
+  left: -5%;
+  animation: floatReverse 14s ease-in-out infinite;
+}
+
+.floating-shape-3 {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 143, 0, 0.1);
+  top: 40%;
+  left: 30%;
+  animation: float 16s ease-in-out infinite;
+}
+
+.dark .floating-shape-1 {
+  background: rgba(255, 193, 7, 0.07);
+}
+
+.dark .floating-shape-2 {
+  background: rgba(184, 115, 51, 0.06);
+}
+
+.dark .floating-shape-3 {
+  background: rgba(255, 143, 0, 0.05);
+}
+
+/* Scroll Indicator bounce */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.scroll-indicator {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Card Glow on Hover */
+.card-glow {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease, background 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, #FFC107, #FF8F00, #B87333);
+}
+
+.card-glow:hover {
+  box-shadow: 0 20px 40px -12px rgba(255, 193, 7, 0.15),
+    0 8px 16px -8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Gradient */
+.btn-gradient {
+  background: linear-gradient(135deg, #FFC107 0%, #FFB300 50%, #FF8F00 100%);
+  color: #1a1a1a;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.btn-gradient:hover {
+  box-shadow: 0 6px 25px rgba(255, 193, 7, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Ripple effect */
+.btn-gradient::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+}
+
+.btn-gradient:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
 /* Article Typography - Medium-style prose */
 .article-prose p {
   text-indent: 2em;
@@ -257,4 +462,43 @@
 
 .dark .article-prose hr::before {
   color: rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================
+   VIDEO EMBED — Responsive Wrapper
+   ======================================== */
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  background: #000;
+}
+
+.video-embed iframe,
+.video-embed video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.article-prose video {
+  width: 100%;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+}
+
+.article-prose iframe {
+  width: 100%;
+  border-radius: 0.75rem;
+  margin: 2rem 0;
+  aspect-ratio: 16 / 9;
 }

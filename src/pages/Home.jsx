@@ -6,6 +6,7 @@ import About from '../components/sections/About';
 import Work from '../components/sections/Work';
 import Services from '../components/sections/Services';
 import Contact from '../components/sections/Contact';
+import Testimonials from '../components/sections/Testimonials';
 
 export default function Home() {
     const { hash } = useLocation();
@@ -30,6 +31,7 @@ export default function Home() {
             <About />
             <Work />
             <Services />
+            <Testimonials />
             <Contact />
         </>
     );

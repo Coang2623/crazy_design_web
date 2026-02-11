@@ -25,12 +25,14 @@ export default function Work() {
                     {recentProjects.map((project, index) => (
                         <FadeIn key={project.slug} delay={index * 150}>
                             <Link to={`/projects/${project.slug}`} className="group block h-full">
-                                <div className="bg-white dark:bg-gray-800/50 rounded-xl shadow-lg overflow-hidden h-full flex flex-col hover:shadow-xl transition-shadow duration-300">
+                                <div className="card-glow bg-white dark:bg-gray-800/50 rounded-xl shadow-lg overflow-hidden h-full flex flex-col hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5">
                                     <div className="overflow-hidden relative aspect-video">
                                         {project.coverImage ? (
                                             <img
                                                 alt={project.title}
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                loading="lazy"
+                                                decoding="async"
                                                 src={project.coverImage}
                                             />
                                         ) : (
@@ -47,8 +49,8 @@ export default function Work() {
                                         <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4 line-clamp-3 flex-grow">
                                             {project.summary}
                                         </p>
-                                        <span className="text-primary-500 text-sm font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
-                                            {t('common.viewProject')} <span className="material-icons text-sm">arrow_forward</span>
+                                        <span className="text-primary-500 text-sm font-semibold flex items-center gap-1 transition-transform mt-auto">
+                                            {t('common.viewProject')} <span className="material-icons text-sm group-hover:translate-x-1 group-hover:-rotate-45 group-hover:scale-110 transition-transform duration-300">arrow_forward</span>
                                         </span>
                                     </div>
                                 </div>

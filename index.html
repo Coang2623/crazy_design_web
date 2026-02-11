@@ -12,6 +12,7 @@
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 
     <!-- Google Fonts - Playfair Display, Inter, Space Grotesk -->
     <link
@@ -20,6 +21,37 @@
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- Preload critical font -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" />
+
+    <!-- Critical CSS — above-fold styles inline -->
+    <style>
+        /* Prevent FOUC */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #root {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Hero skeleton */
+        .hero-gradient-mesh {
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body class="bg-background-light dark:bg-background-dark font-body text-gray-800 dark:text-gray-200 antialiased">

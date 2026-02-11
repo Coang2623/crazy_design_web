@@ -1,15 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link, Navigate, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { projects } from '@content';
 import { useMDX } from '../../hooks/useMDX';
 import { Helmet } from 'react-helmet-async';
 import FadeIn from '../../components/common/FadeIn';
+import Lightbox from '../../components/common/Lightbox';
 
 export default function ProjectDetail() {
     const { slug } = useParams();
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
 
     const project = projects.find(p => p.slug === slug);
 
@@ -32,6 +35,17 @@ export default function ProjectDetail() {
     const MDXContent = useMDX(project.content);
 
     const readTime = Math.ceil(project.content.length / 1000) || 4;
+
+    // Gather all images: cover + images array
+    const allImages = [
+        project.coverImage,
+        ...(project.images || [])
+    ].filter(Boolean);
+
+    const openLightbox = (index) => {
+        setLightboxIndex(index);
+        setLightboxOpen(true);
+    };
 
     return (
         <>
@@ -95,13 +109,16 @@ export default function ProjectDetail() {
                     {/* Content */}
                     <FadeIn delay={200}>
                         <div className="article-prose font-article">
-                            {/* Feature Image */}
+                            {/* Feature Image — clickable for lightbox */}
                             {project.coverImage && (
                                 <figure className="-mx-5 sm:-mx-8 md:-mx-20 mb-10">
                                     <img
                                         src={project.coverImage}
                                         alt={project.title}
-                                        className="w-full h-auto object-cover sm:rounded-md"
+                                        className="w-full h-auto object-cover sm:rounded-md cursor-pointer hover:opacity-90 transition-opacity"
+                                        loading="lazy"
+                                        decoding="async"
+                                        onClick={() => openLightbox(0)}
                                     />
                                 </figure>
                             )}
@@ -113,6 +130,35 @@ export default function ProjectDetail() {
                             )}
                         </div>
                     </FadeIn>
+
+                    {/* Image Gallery (if project has multiple images) */}
+                    {allImages.length > 1 && (
+                        <FadeIn delay={300}>
+                            <div className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800">
+                                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                                    <span className="material-icons text-primary-500">photo_library</span>
+                                    {i18n.language === 'vi' ? 'Thư viện ảnh' : 'Photo Gallery'}
+                                </h3>
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                                    {allImages.map((img, i) => (
+                                        <button
+                                            key={i}
+                                            onClick={() => openLightbox(i)}
+                                            className="aspect-square rounded-lg overflow-hidden group cursor-pointer"
+                                        >
+                                            <img
+                                                src={img}
+                                                alt={`${project.title} - ${i + 1}`}
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                                loading="lazy"
+                                                decoding="async"
+                                            />
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </FadeIn>
+                    )}
 
                     {/* Tags */}
                     <div className="mt-16 pt-8 border-t border-gray-100 dark:border-gray-800">
@@ -137,6 +183,14 @@ export default function ProjectDetail() {
                     </div>
                 </div>
             </article>
+
+            {/* Lightbox */}
+            <Lightbox
+                images={allImages}
+                initialIndex={lightboxIndex}
+                isOpen={lightboxOpen}
+                onClose={() => setLightboxOpen(false)}
+            />
         </>
     );
 }

@@ -1,0 +1,78 @@
+/* Header Component Styles (CSS Module Example) */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    transition: all 0.3s ease;
+}
+
+.headerScrolled {
+    composes: header;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.headerTransparent {
+    composes: header;
+    background: transparent;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+:global(.dark) .headerScrolled {
+    background: rgba(15, 23, 42, 0.95);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.navLink {
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    color: #4b5563;
+}
+
+.navLink:hover {
+    color: #FFC107;
+}
+
+.navLinkActive {
+    composes: navLink;
+    color: #FFC107;
+}
+
+:global(.dark) .navLink {
+    color: #d1d5db;
+}
+
+:global(.dark) .navLink:hover {
+    color: #FFC107;
+}
+
+.mobileMenu {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.mobileMenuOpen {
+    composes: mobileMenu;
+    max-height: 20rem;
+    opacity: 1;
+}
+
+.mobileMenuClosed {
+    composes: mobileMenu;
+    max-height: 0;
+    opacity: 0;
+}

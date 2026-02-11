@@ -2,20 +2,23 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const ThemeContext = createContext();
 
-export function ThemeProvider({ children }) {
-    const [theme, setTheme] = useState(() => {
-        if (typeof window !== 'undefined') {
-            const storedTheme = localStorage.getItem('theme');
-            if (storedTheme) {
-                return storedTheme;
-            }
-            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                return 'dark';
-            }
-        }
-        return 'light';
-    });
+/**
+ * Determines theme based on time of day:
+ * 6:00 AM - 5:59 PM → light
+ * 6:00 PM - 5:59 AM → dark
+ */
+function getTimeBasedTheme() {
+    const hour = new Date().getHours();
+    return (hour >= 6 && hour < 18) ? 'light' : 'dark';
+}
 
+export function ThemeProvider({ children }) {
+    // Session-only state: defaults to time-based theme, no localStorage
+    const [theme, setTheme] = useState(() => getTimeBasedTheme());
+    // Track whether user manually toggled (session-only flag)
+    const [userOverride, setUserOverride] = useState(false);
+
+    // Apply theme class to <html>
     useEffect(() => {
         const root = window.document.documentElement;
         if (theme === 'dark') {
@@ -23,11 +26,25 @@ export function ThemeProvider({ children }) {
         } else {
             root.classList.remove('dark');
         }
-        localStorage.setItem('theme', theme);
     }, [theme]);
 
+    // Auto-update theme at 6AM and 6PM if user hasn't manually toggled
+    useEffect(() => {
+        if (userOverride) return; // User took control, don't auto-switch
+
+        const checkTime = () => {
+            const newTheme = getTimeBasedTheme();
+            setTheme(prev => (prev !== newTheme ? newTheme : prev));
+        };
+
+        // Check every minute
+        const interval = setInterval(checkTime, 60 * 1000);
+        return () => clearInterval(interval);
+    }, [userOverride]);
+
     const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+        setUserOverride(true); // Mark as manually overridden for this session
+        setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
     };
 
     return (

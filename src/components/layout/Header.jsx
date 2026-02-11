@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -11,11 +11,19 @@ export default function Header() {
     const { theme, toggleTheme } = useTheme();
     const location = useLocation();
 
+    // Debounced scroll handler
     useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setIsScrolled(window.scrollY > 20);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -24,19 +32,19 @@ export default function Header() {
         setIsMenuOpen(false);
     }, [location.pathname]);
 
-    const isActive = (path) => {
+    const isActive = useCallback((path) => {
         if (path.includes('#')) {
             const [pathPart, hashPart] = path.split('#');
             return location.pathname === pathPart && location.hash === `#${hashPart}`;
         }
         return location.pathname === path && path !== '/' || (path !== '/' && location.pathname.startsWith(path));
-    };
+    }, [location.pathname, location.hash]);
 
-    const navLinkClass = (path) =>
+    const navLinkClass = useCallback((path) =>
         `text-sm font-medium transition-colors duration-200 ${isActive(path)
             ? 'text-primary-500'
             : 'text-gray-600 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400'
-        }`;
+        }`, [isActive]);
 
     return (
         <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
@@ -99,20 +107,25 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Mobile Menu */}
-            {isMenuOpen && (
-                <div className="md:hidden bg-white dark:bg-dark-900 border-t border-gray-100 dark:border-gray-800 shadow-lg">
+            {/* Mobile Menu — Slide-in Animation */}
+            <div
+                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen
+                        ? 'max-h-80 opacity-100'
+                        : 'max-h-0 opacity-0'
+                    }`}
+            >
+                <div className="bg-white dark:bg-dark-900 border-t border-gray-100 dark:border-gray-800 shadow-lg">
                     <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-3">
-                        <Link className={navLinkClass('/#about')} to="/#about">{t.nav.about}</Link>
-                        <Link className={navLinkClass('/projects')} to="/projects">{t.nav.work}</Link>
-                        <Link className={navLinkClass('/#services')} to="/#services">{t.nav.services}</Link>
-                        <Link className={navLinkClass('/blog')} to="/blog">{t.nav.journal}</Link>
-                        <Link className="bg-primary-500 text-white px-4 py-2.5 rounded-lg text-center text-sm font-medium hover:bg-primary-600 transition-colors" to="/#contact">
+                        <Link className={`${navLinkClass('/#about')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/#about" style={{ transitionDelay: '50ms' }}>{t.nav.about}</Link>
+                        <Link className={`${navLinkClass('/projects')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/projects" style={{ transitionDelay: '100ms' }}>{t.nav.work}</Link>
+                        <Link className={`${navLinkClass('/#services')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/#services" style={{ transitionDelay: '150ms' }}>{t.nav.services}</Link>
+                        <Link className={`${navLinkClass('/blog')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/blog" style={{ transitionDelay: '200ms' }}>{t.nav.journal}</Link>
+                        <Link className={`bg-primary-500 text-white px-4 py-2.5 rounded-lg text-center text-sm font-medium hover:bg-primary-600 transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/#contact" style={{ transitionDelay: '250ms' }}>
                             {t.nav.contact}
                         </Link>
                     </div>
                 </div>
-            )}
+            </div>
         </header>
     );
 }
