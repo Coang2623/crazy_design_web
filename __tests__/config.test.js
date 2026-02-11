@@ -4,7 +4,7 @@ import { config } from '../src/lib/config';
 describe('Config', () => {
     it('should have basic site configuration', () => {
         expect(config.site).toBeDefined();
-        expect(config.site.title).toBe('Crazydesign');
+        expect(config.site.name).toBe('Crazydesign');
         expect(config.contact).toBeDefined();
     });
 
@@ -14,7 +14,7 @@ describe('Config', () => {
     });
 
     it('should support multiple languages', () => {
-        expect(config.site.language).toBe('vi');
+        expect(config.site.defaultLocale).toBe('en');
         // Check if locales structure exists implicitly via usage in app
     });
 });
