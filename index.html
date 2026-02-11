@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/src/assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crazydesign | Premium Interior Design</title>
+    <meta name="description"
+        content="Crazydesign specializes in bespoke furniture and interior design for workshops, spas, and coffee shops. Transform your vision into beautiful reality." />
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+
+    <!-- Google Fonts - Playfair Display, Inter, Space Grotesk -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap&subset=vietnamese"
+        rel="stylesheet" />
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <!-- Preload critical font -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" />
+
+    <!-- Critical CSS — above-fold styles inline -->
+    <style>
+        /* Prevent FOUC */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        #root {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Hero skeleton */
+        .hero-gradient-mesh {
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-body text-gray-800 dark:text-gray-200 antialiased">
+    <div id="root" class="flex flex-col min-h-screen"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
