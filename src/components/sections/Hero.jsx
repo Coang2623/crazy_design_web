@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useContent } from '../../contexts/ContentContext';
 import FadeIn from '../common/FadeIn';
 
 export default function Hero() {
-    const { t } = useLanguage();
+    const { language } = useLanguage();
+    const { get } = useContent();
+    const lang = language || 'en';
     const sectionRef = useRef(null);
     const shape1Ref = useRef(null);
     const shape2Ref = useRef(null);
@@ -34,21 +37,21 @@ export default function Hero() {
                 {/* Eyebrow */}
                 <FadeIn delay={0} duration={600}>
                     <span className="inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary-500 mb-6 px-4 py-1.5 rounded-full border border-primary-500/20 bg-primary-500/5">
-                        {t.hero?.badge || 'Premium Interior Design'}
+                        {get('hero', 'badge', lang) || 'Premium Interior Design'}
                     </span>
                 </FadeIn>
 
                 {/* Main Heading — Gradient Text */}
                 <FadeIn delay={150} duration={800}>
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-tight tracking-tight mb-8 pb-4 bg-gradient-to-r from-gray-900 via-primary-700 to-primary-500 dark:from-white dark:via-primary-300 dark:to-primary-500 bg-clip-text text-transparent">
-                        {t.hero.title}
+                        {get('hero', 'title', lang)}
                     </h1>
                 </FadeIn>
 
                 {/* Subtitle */}
                 <FadeIn delay={350} duration={800}>
                     <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
-                        {t.hero.subtitle}
+                        {get('hero', 'subtitle', lang)}
                     </p>
                 </FadeIn>
 
@@ -59,14 +62,14 @@ export default function Hero() {
                             to="/projects"
                             className="btn-gradient inline-flex items-center px-8 py-4 rounded-xl text-lg font-semibold group"
                         >
-                            {t.hero.cta}
+                            {get('hero', 'cta', lang) || 'View Our Portfolio'}
                             <span className="material-icons ml-2 text-xl group-hover:translate-x-1 group-hover:scale-110 transition-transform">arrow_forward</span>
                         </Link>
                         <a
                             href="#about"
                             className="inline-flex items-center px-8 py-4 rounded-xl text-lg font-medium text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all duration-300 group"
                         >
-                            {t.about?.title || 'Learn More'}
+                            {get('about', 'title', lang) || 'Learn More'}
                             <span className="material-icons ml-2 text-xl group-hover:translate-y-0.5 transition-transform">south</span>
                         </a>
                     </div>

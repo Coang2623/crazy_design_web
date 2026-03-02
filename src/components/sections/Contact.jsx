@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { useContent } from '../../contexts/ContentContext';
 import { config } from '../../lib/config';
 import FadeIn from '../common/FadeIn';
 
 export default function Contact() {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
+    const { get } = useContent();
+    const lang = language || 'en';
+    // CMS values with fallback to config.js
+    const phone = get('contact', 'phone', lang) || config.contact.phone;
+    const email = get('contact', 'email', lang) || config.contact.email;
+    const facebook = get('contact', 'facebook', lang) || config.contact.facebook;
+    const zalo = get('contact', 'zalo', lang) || config.contact.zalo;
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [status, setStatus] = useState('idle'); // idle | loading | success | error
     const [errors, setErrors] = useState({});
@@ -148,17 +156,17 @@ export default function Contact() {
                         </form>
 
                         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center border-t border-gray-200 dark:border-gray-700 pt-8">
-                            <a href={config.contact.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
+                            <a href={facebook} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
                                 <span className="material-icons text-2xl text-blue-600 group-hover:scale-110 transition-transform">facebook</span>
                                 <span className="text-sm text-gray-500 dark:text-gray-400">Crazydesign</span>
                             </a>
-                            <a href={config.contact.zalo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
+                            <a href={zalo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
                                 <span className="material-icons text-2xl text-blue-500 group-hover:scale-110 transition-transform">chat</span>
-                                <span className="text-sm text-gray-500 dark:text-gray-400">{config.contact.phone}</span>
+                                <span className="text-sm text-gray-500 dark:text-gray-400">{phone}</span>
                             </a>
-                            <a href={`mailto:${config.contact.email}`} className="flex items-center justify-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
+                            <a href={`mailto:${email}`} className="flex items-center justify-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
                                 <span className="material-icons text-2xl text-red-500 group-hover:scale-110 transition-transform">email</span>
-                                <span className="text-sm text-gray-500 dark:text-gray-400">{config.contact.email}</span>
+                                <span className="text-sm text-gray-500 dark:text-gray-400">{email}</span>
                             </a>
                         </div>
                     </div>

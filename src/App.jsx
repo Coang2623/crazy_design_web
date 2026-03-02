@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { ContentProvider } from './contexts/ContentContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/layout/Layout';
@@ -49,14 +50,16 @@ function App() {
         <HelmetProvider>
             <LanguageProvider>
                 <ThemeProvider>
-                    <Suspense fallback={
-                        <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dark-900">
-                            <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary-500"></div>
-                        </div>
-                    }>
-                        <ScrollProgress />
-                        <RouterProvider router={router} />
-                    </Suspense>
+                    <ContentProvider>
+                        <Suspense fallback={
+                            <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dark-900">
+                                <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-primary-500"></div>
+                            </div>
+                        }>
+                            <ScrollProgress />
+                            <RouterProvider router={router} />
+                        </Suspense>
+                    </ContentProvider>
                 </ThemeProvider>
             </LanguageProvider>
         </HelmetProvider>
