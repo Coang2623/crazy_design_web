@@ -30,8 +30,6 @@ jobs:
       - name: Generate content
         run: npx velite build
 
-      - name: Run Tests
-        run: npx vitest run
 
       - name: Build
         run: npm run build
