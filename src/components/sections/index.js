@@ -5,3 +5,5 @@ export { default as Work } from './Work';
 export { default as Services } from './Services';
 export { default as Contact } from './Contact';
 export { default as Testimonials } from './Testimonials';
+export { default as Calculator } from './Calculator';
+export { default as Booking } from './Booking';

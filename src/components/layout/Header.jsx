@@ -63,6 +63,8 @@ export default function Header() {
                     <Link className={navLinkClass('/#about')} to="/#about">{t.nav.about}</Link>
                     <Link className={navLinkClass('/projects')} to="/projects">{t.nav.work}</Link>
                     <Link className={navLinkClass('/#services')} to="/#services">{t.nav.services}</Link>
+                    <Link className={navLinkClass('/#calculator')} to="/#calculator">{t.nav.calculator}</Link>
+                    <Link className={navLinkClass('/#booking')} to="/#booking">{t.nav.booking}</Link>
                     <Link className={navLinkClass('/blog')} to="/blog">{t.nav.journal}</Link>
                     <Link className="text-sm font-medium bg-primary-500 text-white px-4 py-2 rounded-lg hover:bg-primary-600 transition-colors shadow-sm" to="/#contact">
                         {t.nav.contact}
@@ -110,8 +112,8 @@ export default function Header() {
             {/* Mobile Menu — Slide-in Animation */}
             <div
                 className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen
-                        ? 'max-h-80 opacity-100'
-                        : 'max-h-0 opacity-0'
+                    ? 'max-h-80 opacity-100'
+                    : 'max-h-0 opacity-0'
                     }`}
             >
                 <div className="bg-white dark:bg-dark-900 border-t border-gray-100 dark:border-gray-800 shadow-lg">
@@ -119,7 +121,9 @@ export default function Header() {
                         <Link className={`${navLinkClass('/#about')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/#about" style={{ transitionDelay: '50ms' }}>{t.nav.about}</Link>
                         <Link className={`${navLinkClass('/projects')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/projects" style={{ transitionDelay: '100ms' }}>{t.nav.work}</Link>
                         <Link className={`${navLinkClass('/#services')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/#services" style={{ transitionDelay: '150ms' }}>{t.nav.services}</Link>
-                        <Link className={`${navLinkClass('/blog')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/blog" style={{ transitionDelay: '200ms' }}>{t.nav.journal}</Link>
+                        <Link className={`${navLinkClass('/#calculator')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/#calculator" style={{ transitionDelay: '175ms' }}>{t.nav.calculator}</Link>
+                        <Link className={`${navLinkClass('/#booking')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/#booking" style={{ transitionDelay: '200ms' }}>{t.nav.booking}</Link>
+                        <Link className={`${navLinkClass('/blog')} transform transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/blog" style={{ transitionDelay: '225ms' }}>{t.nav.journal}</Link>
                         <Link className={`bg-primary-500 text-white px-4 py-2.5 rounded-lg text-center text-sm font-medium hover:bg-primary-600 transition-all duration-300 ${isMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-4 opacity-0'}`} to="/#contact" style={{ transitionDelay: '250ms' }}>
                             {t.nav.contact}
                         </Link>

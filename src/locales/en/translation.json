@@ -4,7 +4,9 @@
         "work": "Our Work",
         "services": "Services",
         "journal": "Journal",
-        "contact": "Contact Us"
+        "contact": "Contact Us",
+        "calculator": "Pricing",
+        "booking": "Booking"
     },
     "hero": {
         "title": "Crafting Spaces, Inspiring Life.",
@@ -78,6 +80,33 @@
         "year": "Year",
         "services": "Services",
         "loading": "Loading..."
+    },
+    "calculator": {
+        "title": "Cost Estimator",
+        "subtitle": "Get a preliminary quote for your project in just a few steps.",
+        "area": "Area (m²)",
+        "projectType": "Project Type",
+        "style": "Design Style",
+        "package": "Service Package",
+        "result": "Estimated Result",
+        "total": "Total Estimated Cost",
+        "unit": "VND",
+        "sendRequest": "Request Detailed Quote",
+        "placeholder": "e.g. 50"
+    },
+    "booking": {
+        "title": "Schedule a Consultation",
+        "subtitle": "Choose a suitable time to discuss your ideas with our architect.",
+        "date": "Select Date",
+        "time": "Select Time Slot",
+        "morning": "Morning (9 AM - 11 AM)",
+        "afternoon": "Afternoon (2 PM - 5 PM)",
+        "name": "Full Name",
+        "phone": "Phone Number",
+        "email": "Email",
+        "note": "Additional Notes",
+        "submit": "Confirm Booking",
+        "success": "Your request has been sent successfully!"
     },
     "blog": {
         "latest": "Latest Journal",

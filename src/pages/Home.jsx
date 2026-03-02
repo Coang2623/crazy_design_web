@@ -7,6 +7,8 @@ import Work from '../components/sections/Work';
 import Services from '../components/sections/Services';
 import Contact from '../components/sections/Contact';
 import Testimonials from '../components/sections/Testimonials';
+import Calculator from '../components/sections/Calculator';
+import Booking from '../components/sections/Booking';
 
 export default function Home() {
     const { hash } = useLocation();
@@ -32,6 +34,8 @@ export default function Home() {
             <Work />
             <Services />
             <Testimonials />
+            <Calculator />
+            <Booking />
             <Contact />
         </>
     );

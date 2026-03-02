@@ -6,6 +6,8 @@ export const translations = {
             services: "Services",
             journal: "Journal",
             contact: "Contact Us",
+            calculator: "Pricing",
+            booking: "Booking",
         },
         hero: {
             title: "Crafting Spaces, Inspiring Life.",
@@ -73,6 +75,8 @@ export const translations = {
             services: "Dịch Vụ",
             journal: "Nhật Ký",
             contact: "Liên Hệ",
+            calculator: "Tính Giá",
+            booking: "Đặt Lịch",
         },
         hero: {
             title: "Kiến Tạo Không Gian, Khơi Nguồn Cảm Hứng.",

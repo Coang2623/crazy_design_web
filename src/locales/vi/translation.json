@@ -4,7 +4,9 @@
         "work": "Dự Án",
         "services": "Dịch Vụ",
         "journal": "Nhật Ký",
-        "contact": "Liên Hệ"
+        "contact": "Liên Hệ",
+        "calculator": "Tính Giá",
+        "booking": "Đặt Lịch"
     },
     "hero": {
         "title": "Kiến Tạo Không Gian, Khơi Nguồn Cảm Hứng.",
@@ -78,6 +80,33 @@
         "year": "Năm",
         "services": "Dịch Vụ",
         "loading": "Đang Tải..."
+    },
+    "calculator": {
+        "title": "Dự Toán Chi Phí",
+        "subtitle": "Nhận ngay báo giá sơ bộ cho dự án của bạn chỉ trong vài bước.",
+        "area": "Diện tích (m²)",
+        "projectType": "Loại hình dự án",
+        "style": "Phong cách thiết kế",
+        "package": "Gói dịch vụ",
+        "result": "Kết quả tạm tính",
+        "total": "Tổng chi phí ước tính",
+        "unit": "VNĐ",
+        "sendRequest": "Gửi yêu cầu báo giá chi tiết",
+        "placeholder": "Ví dụ: 50"
+    },
+    "booking": {
+        "title": "Đặt Lịch Tư Vấn",
+        "subtitle": "Chọn thời gian phù hợp để thảo luận về ý tưởng của bạn với kiến trúc sư.",
+        "date": "Chọn ngày",
+        "time": "Chọn khung giờ",
+        "morning": "Buổi sáng (9h - 11h)",
+        "afternoon": "Buổi chiều (14h - 17h)",
+        "name": "Họ và tên",
+        "phone": "Số điện thoại",
+        "email": "Email",
+        "note": "Ghi chú thêm",
+        "submit": "Xác nhận đặt lịch",
+        "success": "Yêu cầu của bạn đã được gửi thành công!"
     },
     "blog": {
         "latest": "Nhật Ký Mới Nhất",
