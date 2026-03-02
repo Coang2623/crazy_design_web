@@ -22,7 +22,9 @@ const DEFAULTS = {
         phone: { vi: '+84 912 345 678', en: '+84 912 345 678' },
         email: { vi: 'hello@crazydesign.vn', en: 'hello@crazydesign.vn' },
         facebook: { vi: 'https://facebook.com/crazydesign', en: 'https://facebook.com/crazydesign' },
+        facebook_name: { vi: 'Crazydesign', en: 'Crazydesign' },
         zalo: { vi: 'https://zalo.me/0912345678', en: 'https://zalo.me/0912345678' },
+        zalo_name: { vi: '+84 912 345 678', en: '+84 912 345 678' },
         address: { vi: 'TP. Hồ Chí Minh, Việt Nam', en: 'Ho Chi Minh City, Vietnam' },
     },
 };
