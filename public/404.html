@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Crazydesign</title>
+    <script>
+        // SPA redirect: chuyển path thành query string rồi redirect về index.html
+        // Source: https://github.com/rafgraph/spa-github-pages
+        var pathSegmentsToKeep = 1; // số segment của basename (/crazy_design_web)
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.host + l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
+    </script>
+</head>
+
+<body></body>
+
+</html>
