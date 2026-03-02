@@ -52,6 +52,19 @@
             overflow: hidden;
         }
     </style>
+    <!-- SPA GitHub Pages routing fix -->
+    <script>
+        (function (l) {
+            if (l.search[1] === '/') {
+                var decoded = l.search.slice(1).split('&').map(function (s) {
+                    return s.replace(/~and~/g, '&')
+                }).join('?');
+                window.history.replaceState(null, null,
+                    l.pathname.slice(0, -1) + decoded + l.hash
+                );
+            }
+        }(window.location))
+    </script>
   <script type="module" crossorigin src="/crazy_design_web/assets/index-BU-D-ZLU.js"></script>
   <link rel="modulepreload" crossorigin href="/crazy_design_web/assets/vendor-DeNe__VS.js">
   <link rel="modulepreload" crossorigin href="/crazy_design_web/assets/i18n-DeGJqg2L.js">
