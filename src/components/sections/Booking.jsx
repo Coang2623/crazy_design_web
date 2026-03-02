@@ -3,12 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import FadeIn from '../common/FadeIn';
 import DatePicker from '../common/DatePicker';
+import { submitBooking } from '@/lib/supabase';
 
 export default function Booking() {
     const { t, i18n } = useTranslation();
-    const [status, setStatus] = useState(null);
+    const [status, setStatus] = useState(null); // null | 'loading' | 'success' | 'error'
     const [timeSlot, setTimeSlot] = useState('morning');
     const [selectedDate, setSelectedDate] = useState(null);
+    const [errorMsg, setErrorMsg] = useState('');
+    const [formData, setFormData] = useState({ name: '', phone: '', email: '', note: '' });
     const lang = i18n.language?.startsWith('vi') ? 'vi' : 'en';
 
     const steps = {
@@ -24,18 +27,44 @@ export default function Booking() {
         ]
     };
 
+    const handleInput = (e) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!selectedDate) {
+            setErrorMsg(lang === 'vi' ? 'Vui lòng chọn ngày hẹn.' : 'Please select a date.');
+            return;
+        }
         setStatus('loading');
+        setErrorMsg('');
 
-        // Simulating form submission (using actual Formspree endpoint would go here)
-        // const formData = new FormData(e.target);
-        // const response = await fetch(config.api.formspree, { ... });
+        // Format date to YYYY-MM-DD
+        const d = new Date(selectedDate);
+        const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 
-        setTimeout(() => {
+        const { error } = await submitBooking({
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            date: dateStr,
+            timeSlot: timeSlot,
+            note: formData.note,
+        });
+
+        if (error) {
+            console.error('[Booking] Supabase error:', error);
+            setStatus('error');
+            setErrorMsg(lang === 'vi'
+                ? 'Có lỗi xảy ra. Vui lòng thử lại hoặc liên hệ trực tiếp.'
+                : 'Something went wrong. Please try again or contact us directly.');
+        } else {
             setStatus('success');
-            e.target.reset();
-        }, 1500);
+            setFormData({ name: '', phone: '', email: '', note: '' });
+            setSelectedDate(null);
+            setTimeSlot('morning');
+        }
     };
 
     return (
@@ -87,6 +116,9 @@ export default function Booking() {
                                     <input
                                         required
                                         type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleInput}
                                         placeholder={t('contact.namePlaceholder')}
                                         className="w-full bg-gray-50 dark:bg-dark-900/50 border-2 border-transparent focus:border-primary-500/50 rounded-xl px-5 py-4 outline-none transition-all dark:text-white"
                                     />
@@ -99,6 +131,9 @@ export default function Booking() {
                                     <input
                                         required
                                         type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleInput}
                                         placeholder="+84 ..."
                                         className="w-full bg-gray-50 dark:bg-dark-900/50 border-2 border-transparent focus:border-primary-500/50 rounded-xl px-5 py-4 outline-none transition-all dark:text-white"
                                     />
@@ -157,16 +192,35 @@ export default function Booking() {
                                 </label>
                                 <textarea
                                     rows="3"
+                                    name="note"
+                                    value={formData.note}
+                                    onChange={handleInput}
                                     placeholder={t('contact.messagePlaceholder')}
                                     className="w-full bg-gray-50 dark:bg-dark-900/50 border-2 border-transparent focus:border-primary-500/50 rounded-xl px-5 py-4 outline-none transition-all dark:text-white resize-none"
                                 ></textarea>
                             </div>
 
+                            {/* Error Message */}
+                            {errorMsg && (
+                                <motion.p
+                                    initial={{ opacity: 0, y: -4 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="text-red-500 text-sm flex items-center gap-2 mb-4"
+                                >
+                                    <span className="material-icons text-base">error_outline</span>
+                                    {errorMsg}
+                                </motion.p>
+                            )}
+
                             <button
+                                type="submit"
                                 disabled={status === 'loading'}
+                                onClick={() => status === 'error' && setStatus(null)}
                                 className={`w-full py-5 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all ${status === 'success'
-                                    ? 'bg-green-500 text-white'
-                                    : 'bg-primary-500 hover:bg-primary-600 text-white shadow-xl shadow-primary-500/20'
+                                        ? 'bg-green-500 text-white cursor-default'
+                                        : status === 'error'
+                                            ? 'bg-red-500 hover:bg-red-600 text-white'
+                                            : 'bg-primary-500 hover:bg-primary-600 text-white shadow-xl shadow-primary-500/20'
                                     }`}
                             >
                                 {status === 'loading' ? (
@@ -175,6 +229,11 @@ export default function Booking() {
                                     <>
                                         <span className="material-icons">check_circle</span>
                                         {t('booking.success')}
+                                    </>
+                                ) : status === 'error' ? (
+                                    <>
+                                        <span className="material-icons">refresh</span>
+                                        {lang === 'vi' ? 'Thử lại' : 'Try Again'}
                                     </>
                                 ) : (
                                     <>

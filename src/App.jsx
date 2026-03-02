@@ -11,6 +11,9 @@ const Projects = lazy(() => import('./pages/projects/index'));
 const ProjectDetail = lazy(() => import('./pages/projects/slug'));
 const Blog = lazy(() => import('./pages/blog/index'));
 const BlogDetail = lazy(() => import('./pages/blog/slug'));
+// Admin (Phase 2 — Supabase)
+const Admin = lazy(() => import('./pages/Admin'));
+const Login = lazy(() => import('./pages/Login'));
 
 const NotFound = () => (
     <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 pt-24">
@@ -34,6 +37,9 @@ const router = createBrowserRouter([
             { path: '*', element: <NotFound /> },
         ],
     },
+    // Admin routes — trang nội bộ, không dùng Layout chung
+    { path: '/admin', element: <Admin /> },
+    { path: '/admin/login', element: <Login /> },
 ], {
     basename: '/crazy_design_web'
 });
