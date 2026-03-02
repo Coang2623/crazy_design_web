@@ -13,6 +13,8 @@ export default function Contact() {
     const email = get('contact', 'email', lang) || config.contact.email;
     const facebook = get('contact', 'facebook', lang) || config.contact.facebook;
     const zalo = get('contact', 'zalo', lang) || config.contact.zalo;
+    const facebookName = get('contact', 'facebook_name', 'vi') || 'Crazydesign';
+    const zaloName = get('contact', 'zalo_name', 'vi') || phone;
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [status, setStatus] = useState('idle'); // idle | loading | success | error
     const [errors, setErrors] = useState({});
@@ -158,11 +160,11 @@ export default function Contact() {
                         <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center border-t border-gray-200 dark:border-gray-700 pt-8">
                             <a href={facebook} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
                                 <span className="material-icons text-2xl text-blue-600 group-hover:scale-110 transition-transform">facebook</span>
-                                <span className="text-sm text-gray-500 dark:text-gray-400">Crazydesign</span>
+                                <span className="text-sm text-gray-500 dark:text-gray-400">{facebookName}</span>
                             </a>
                             <a href={zalo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
                                 <span className="material-icons text-2xl text-blue-500 group-hover:scale-110 transition-transform">chat</span>
-                                <span className="text-sm text-gray-500 dark:text-gray-400">{phone}</span>
+                                <span className="text-sm text-gray-500 dark:text-gray-400">{zaloName}</span>
                             </a>
                             <a href={`mailto:${email}`} className="flex items-center justify-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors group">
                                 <span className="material-icons text-2xl text-red-500 group-hover:scale-110 transition-transform">email</span>

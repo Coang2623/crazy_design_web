@@ -7,7 +7,7 @@ import { upsertManySiteContent } from '../../lib/cms';
 import ImageUploader from './ImageUploader';
 import { useContent } from '../../contexts/ContentContext';
 
-// ─── Field component (text/textarea/url) ─────────────────────────
+// ─── BilingualField: 2 columns (VI + EN) — dùng cho text dài ─────
 function BilingualField({ label, sectionKey, fieldKey, type = 'text', viValue, enValue, onChange }) {
     const isTextarea = type === 'textarea';
     const InputTag = isTextarea ? 'textarea' : 'input';
@@ -40,6 +40,28 @@ function BilingualField({ label, sectionKey, fieldKey, type = 'text', viValue, e
                         className="w-full text-sm bg-gray-50 dark:bg-dark-900/50 border border-gray-200 dark:border-dark-700 rounded-xl px-4 py-3 outline-none focus:border-primary-400 dark:text-white resize-none transition-colors"
                     />
                 </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── SingleField: 1 input — dùng cho URL, phone, email (không cần song ngữ) ─
+function SingleField({ label, sectionKey, fieldKey, placeholder, type = 'text', icon, value, onChange }) {
+    return (
+        <div className="space-y-2">
+            <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">{label}</span>
+            <div className="flex items-center gap-3 bg-gray-50 dark:bg-dark-900/50 border border-gray-200 dark:border-dark-700 rounded-xl px-4 py-3 focus-within:border-primary-400 transition-colors">
+                {icon && <span className="material-icons text-gray-400 text-lg shrink-0">{icon}</span>}
+                <input
+                    type={type}
+                    value={value}
+                    onChange={(e) => {
+                        onChange(sectionKey, fieldKey, 'vi', e.target.value);
+                        onChange(sectionKey, fieldKey, 'en', e.target.value);
+                    }}
+                    placeholder={placeholder}
+                    className="flex-1 text-sm bg-transparent outline-none dark:text-white"
+                />
             </div>
         </div>
     );
@@ -207,16 +229,42 @@ export default function ContentEditor() {
                 saving={saving.contact}
                 saved={saved.contact}
             >
-                <BilingualField label="Số điện thoại" sectionKey="contact" fieldKey="phone"
-                    viValue={f('contact', 'phone', 'vi')} enValue={f('contact', 'phone', 'en')} onChange={handleChange} />
-                <BilingualField label="Email" sectionKey="contact" fieldKey="email"
-                    viValue={f('contact', 'email', 'vi')} enValue={f('contact', 'email', 'en')} onChange={handleChange} />
-                <BilingualField label="Địa chỉ" sectionKey="contact" fieldKey="address"
-                    viValue={f('contact', 'address', 'vi')} enValue={f('contact', 'address', 'en')} onChange={handleChange} />
-                <BilingualField label="Facebook URL" sectionKey="contact" fieldKey="facebook"
-                    viValue={f('contact', 'facebook', 'vi')} enValue={f('contact', 'facebook', 'en')} onChange={handleChange} />
-                <BilingualField label="Zalo URL" sectionKey="contact" fieldKey="zalo"
-                    viValue={f('contact', 'zalo', 'vi')} enValue={f('contact', 'zalo', 'en')} onChange={handleChange} />
+                {/* Divider: Contact info */}
+                <p className="text-xs text-gray-400 font-semibold uppercase tracking-widest -mb-2 pb-1 border-b border-gray-100 dark:border-dark-700">📞 Thông tin liên lạc</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <SingleField label="Số điện thoại" sectionKey="contact" fieldKey="phone"
+                        icon="phone" placeholder="+84 912 345 678"
+                        value={f('contact', 'phone', 'vi')} onChange={handleChange} />
+                    <SingleField label="Email" sectionKey="contact" fieldKey="email"
+                        icon="email" type="email" placeholder="hello@crazydesign.vn"
+                        value={f('contact', 'email', 'vi')} onChange={handleChange} />
+                </div>
+
+                <SingleField label="Địa chỉ" sectionKey="contact" fieldKey="address"
+                    icon="location_on" placeholder="TP. Hồ Chí Minh, Việt Nam"
+                    value={f('contact', 'address', 'vi')} onChange={handleChange} />
+
+                {/* Divider: Social links */}
+                <p className="text-xs text-gray-400 font-semibold uppercase tracking-widest -mb-2 pb-1 border-b border-gray-100 dark:border-dark-700">🔗 Mạng xã hội</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <SingleField label="Facebook — Tên hiển thị" sectionKey="contact" fieldKey="facebook_name"
+                        icon="facebook" placeholder="Crazydesign"
+                        value={f('contact', 'facebook_name', 'vi')} onChange={handleChange} />
+                    <SingleField label="Facebook — Link URL" sectionKey="contact" fieldKey="facebook"
+                        icon="link" placeholder="https://facebook.com/crazydesign"
+                        value={f('contact', 'facebook', 'vi')} onChange={handleChange} />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <SingleField label="Zalo — Tên / Số hiển thị" sectionKey="contact" fieldKey="zalo_name"
+                        icon="chat" placeholder="+84 912 345 678"
+                        value={f('contact', 'zalo_name', 'vi')} onChange={handleChange} />
+                    <SingleField label="Zalo — Link URL" sectionKey="contact" fieldKey="zalo"
+                        icon="link" placeholder="https://zalo.me/0912345678"
+                        value={f('contact', 'zalo', 'vi')} onChange={handleChange} />
+                </div>
             </SectionCard>
         </div>
     );
