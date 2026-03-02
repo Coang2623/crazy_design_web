@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase, getBookings, updateBookingStatus, signOut } from '@/lib/supabase';
 import ContentEditor from '../components/admin/ContentEditor';
+import ServicesEditor from '../components/admin/ServicesEditor';
 import TestimonialEditor from '../components/admin/TestimonialEditor';
 import PricingEditor from '../components/admin/PricingEditor';
 
@@ -265,8 +266,8 @@ export default function Admin() {
                                     key={tab.id}
                                     onClick={() => handleTabChange(tab.id)}
                                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all text-left ${activeTab === tab.id
-                                            ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
-                                            : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-dark-800 hover:text-gray-900 dark:hover:text-white'
+                                        ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400'
+                                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-dark-800 hover:text-gray-900 dark:hover:text-white'
                                         }`}
                                 >
                                     <span className={`material-icons text-lg ${activeTab === tab.id ? 'text-primary-500' : ''}`}>{tab.icon}</span>
@@ -289,12 +290,13 @@ export default function Admin() {
                         >
                             {activeTab === 'bookings' && <BookingsTab adminEmail={adminEmail} />}
                             {activeTab === 'content' && (
-                                <div className="space-y-2">
+                                <div className="space-y-4">
                                     <div className="mb-6">
                                         <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Quản lý nội dung</h1>
                                         <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Chỉnh sửa text hiển thị trên website. Thay đổi có hiệu lực ngay lập tức.</p>
                                     </div>
                                     <ContentEditor />
+                                    <ServicesEditor />
                                 </div>
                             )}
                             {activeTab === 'testimonials' && (

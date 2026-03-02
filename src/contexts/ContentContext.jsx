@@ -27,6 +27,19 @@ const DEFAULTS = {
         zalo_name: { vi: '+84 912 345 678', en: '+84 912 345 678' },
         address: { vi: 'TP. Hồ Chí Minh, Việt Nam', en: 'Ho Chi Minh City, Vietnam' },
     },
+    services: {
+        title: { vi: 'Dịch Vụ Của Chúng Tôi', en: 'Our Services' },
+        subtitle: { vi: 'Từ ý tưởng ban đầu đến lắp đặt hoàn chỉnh, chúng tôi cung cấp trọn gói dịch vụ thiết kế.', en: 'From initial concept to final installation, we offer a comprehensive suite of design services.' },
+        item1_icon: { vi: 'space_dashboard', en: 'space_dashboard' },
+        item1_title: { vi: 'Thiết Kế Nội Thất', en: 'Interior Design' },
+        item1_desc: { vi: 'Lập kế hoạch không gian toàn diện, lựa chọn vật liệu và thiết kế ánh sáng.', en: 'Holistic space planning, material selection, and lighting design to create a cohesive environment.' },
+        item2_icon: { vi: 'chair', en: 'chair' },
+        item2_title: { vi: 'Nội Thất Theo Yêu Cầu', en: 'Custom Furniture' },
+        item2_desc: { vi: 'Các sản phẩm nội thất đặt riêng được thiết kế và chế tác để phù hợp hoàn hảo với không gian.', en: 'Bespoke furniture pieces designed and crafted to fit your space and style perfectly.' },
+        item3_icon: { vi: 'construction', en: 'construction' },
+        item3_title: { vi: 'Quản Lý Dự Án', en: 'Project Management' },
+        item3_desc: { vi: 'Giám sát toàn diện từ đầu đến cuối để đảm bảo dự án hoàn thành đúng tiến độ.', en: 'End-to-end oversight to ensure your project is completed on time, on budget, and to our high standards.' },
+    },
 };
 
 const ContentContext = createContext(null);
